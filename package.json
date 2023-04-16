@@ -1,0 +1,40 @@
+{
+  "name": "dotcards",
+  "private": true,
+  "version": "0.1.0",
+  "description": "dot cards",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@strapi/plugin-i18n": "4.9.0",
+    "@strapi/plugin-users-permissions": "4.9.0",
+    "@strapi/provider-email-sendgrid": "^4.9.1",
+    "@strapi/provider-upload-aws-s3": "^4.9.1",
+    "@strapi/strapi": "4.9.0",
+    "better-sqlite3": "8.0.1",
+    "jimp": "^0.22.7",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.2.0",
+    "nodemailer": "^6.9.1",
+    "qrcode": "^1.5.1",
+    "qrcode-reader": "^1.0.4",
+    "strapi-provider-email-sendgrid": "^3.6.11",
+    "strapi-utils": "^3.6.11",
+    "zarinpal-checkout": "^0.2.7"
+  },
+  "author": {
+    "name": "fatemeh mollaei"
+  },
+  "strapi": {
+    "uuid": "6e816f55-6322-4fe1-90db-b3bd0503ea40"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

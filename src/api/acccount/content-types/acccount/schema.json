@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "acccounts",
+  "info": {
+    "singularName": "acccount",
+    "pluralName": "acccounts",
+    "displayName": "acccount",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "instagram": {
+      "type": "text"
+    },
+    "linkedin": {
+      "type": "text"
+    },
+    "order_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order",
+      "inversedBy": "acccount"
+    },
+    "telegram": {
+      "type": "string"
+    },
+    "sorush": {
+      "type": "string"
+    },
+    "eita": {
+      "type": "string"
+    },
+    "baleh": {
+      "type": "string"
+    },
+    "whatsapp": {
+      "type": "string"
+    },
+    "skype": {
+      "type": "string"
+    },
+    "github": {
+      "type": "string"
+    }
+  }
+}
