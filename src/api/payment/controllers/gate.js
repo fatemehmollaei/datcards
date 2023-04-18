@@ -6,54 +6,61 @@ module.exports = createCoreController('api::payment.payment', ({ strapi }) => ({
     try {
       const amount = ctx.request.body.amount;
       const order_id = ctx.request.body.order_id;
-      const res = await paymentsService.createPayment(amount);
+      await paymentsService.createPayment(amount).then(async res => {
 
-      const paymentResult = await strapi.query("api::payment.payment").findOne({
-        where: { order_id: order_id},
-      });
-      if(res){
-        if(!paymentResult){
-          const data = {
-            'amount': amount,
-            'order_id':order_id,
+        if(res){
+          const paymentResult = await strapi.query("api::payment.payment").findOne({
+            where: { order_id: order_id},
+          });
+      if(!paymentResult){
+        const data = {
+          'amount': amount,
+          'order_id':order_id,
+          'authority':res.authority,
+          'url':res.url
+        };
+
+        const result = await strapi.query('api::payment.payment').create({
+          data : data
+        });
+
+        ctx.send({
+          data: result,
+          status:200
+        });
+
+      }else if(paymentResult.status1!='succcess'){
+        const result = await strapi.query("api::payment.payment").update({
+          where: { order_id: order_id},
+          data: {
             'authority':res.authority,
             'url':res.url
-          };
-
-          const result = await strapi.query('api::payment.payment').create({
-            data : data
-          });
-
-          ctx.send({
-            data: result,
-            status:200
-          });
-
-        }else if(paymentResult.status1!='succcess'){
-          const result = await strapi.query("api::payment.payment").update({
-            where: { order_id: order_id},
-            data: {
-              'authority':res.authority,
-              'url':res.url
-            },
-          });
-          ctx.send({
-            data: result,
-            status:200
-          });
-        }else{
-          ctx.send({
-            data: paymentResult,
-            status:200
-          });
-        }
-
+          },
+        });
+        ctx.send({
+          data: result,
+          status:200
+        });
       }else{
         ctx.send({
-          data: 'درگاه پرداخت در دسترس نیست',
+          data: paymentResult,
           status:200
         });
       }
+
+    }else{
+      ctx.send({
+        data: 'درگاه پرداخت در دسترس نیست',
+        status:200
+      });
+    }
+
+      }).catch(err => {
+        console.error(err);
+      });
+      ;
+
+
 
 
 

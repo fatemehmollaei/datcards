@@ -11,18 +11,18 @@ module.exports = ({ env })=>({
     },
   },
   email: {
-    provider: env('EMAIL_PROVIDER'),
+    provider: 'nodemailer',
     providerOptions: {
-      host: env('EMAIL_SMTP_HOST'),
-      port: env('EMAIL_SMTP_PORT'),
+      host:'mail.datcards.ir',
+      port: '587',
       auth: {
-        user: env('EMAIL_SMTP_USER'),
-        pass: env('EMAIL_SMTP_PASS'),
+        user: 'no-reply@datcards.ir',
+        pass: 'G;3;b2k8a2YWsM',
       },
     },
     settings: {
-      defaultFrom: env('EMAIL_ADDRESS_FROM'),
-      defaultReplyTo: env('EMAIL_ADDRESS_REPLY'),
+      defaultFrom:'no-reply@datcards.ir',
+      defaultReplyTo: 'no-reply@datcards.ir',
     },
   },
 });

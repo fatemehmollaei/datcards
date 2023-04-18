@@ -36,13 +36,34 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::acccount.acccount",
-      "inversedBy": "order_id"
+      "mappedBy": "order_id"
     },
     "payment": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::payment.payment",
       "mappedBy": "order_id"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n"
+      ],
+      "default": "a",
+      "required": true
     }
   }
 }
