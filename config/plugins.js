@@ -11,9 +11,10 @@ module.exports = ({ env })=>({
     },
   },
   email: {
+    enabled: true,
     provider: 'nodemailer',
     providerOptions: {
-      host:'mail.datcards.ir',
+      host:'smtp.datcards.ir',
       port: '587',
       auth: {
         user: 'no-reply@datcards.ir',
