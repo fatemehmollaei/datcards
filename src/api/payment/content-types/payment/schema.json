@@ -42,6 +42,9 @@
       "relation": "oneToOne",
       "target": "api::order.order",
       "mappedBy": "payment"
+    },
+    "order_id": {
+      "type": "uid"
     }
   }
 }
