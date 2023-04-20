@@ -27,23 +27,6 @@
     "mobile": {
       "type": "biginteger"
     },
-    "users_id": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
-    },
-    "acccount": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::acccount.acccount",
-      "mappedBy": "order_id"
-    },
-    "payment": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::payment.payment",
-      "mappedBy": "order_id"
-    },
     "type": {
       "type": "enumeration",
       "enum": [
@@ -80,6 +63,23 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "acccount": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::acccount.acccount",
+      "inversedBy": "order"
+    },
+    "payment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::payment.payment",
+      "inversedBy": "order"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }
