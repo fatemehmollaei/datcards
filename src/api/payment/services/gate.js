@@ -7,10 +7,10 @@ module.exports = {
     try {
       const response = await zarinpal.PaymentRequest({
         Amount: amountInTomans, // In Tomans
-        CallbackURL: 'http://localhost:1337/api/payment/verify?amount='+amountInTomans,
+        CallbackURL: 'https://app.datcards.ir/api/payment/verify?amount='+amountInTomans,
         Description: 'A Payment from Node.JS',
-        Email: 'hi@siamak.work',
-        Mobile: '09120000000'
+        Email: 'fatemeh.mollaei.m@gmail.com',
+        Mobile: '09179543199'
       });
       console.log(response)
       if (response.status === 100) {

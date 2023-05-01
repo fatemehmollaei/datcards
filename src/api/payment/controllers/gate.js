@@ -12,10 +12,13 @@ module.exports = createCoreController('api::payment.payment', ({ strapi }) => ({
           const paymentResult = await strapi.query("api::payment.payment").findOne({
             where: { order_id: order_id},
           });
-      if(!paymentResult){
-        const data = {
+
+       if(!paymentResult){
+          const data = {
           'amount': amount,
+          'order':order_id,
           'order_id':order_id,
+          'order':order_id,
           'authority':res.authority,
           'url':res.url
         };
@@ -60,12 +63,6 @@ module.exports = createCoreController('api::payment.payment', ({ strapi }) => ({
       });
       ;
 
-
-
-
-
-
-
     } catch (error) {
       console.error(error);
     }
@@ -89,7 +86,7 @@ module.exports = createCoreController('api::payment.payment', ({ strapi }) => ({
           },
         });
 
-         ctx.send({
+        ctx.send({
           data: result,
           status:200
         });

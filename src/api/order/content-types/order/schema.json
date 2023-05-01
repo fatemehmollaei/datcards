@@ -81,6 +81,18 @@
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "orders"
+    },
+    "job": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "factor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::factor.factor",
+      "mappedBy": "order"
     }
   }
 }

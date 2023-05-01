@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "factors",
+  "info": {
+    "singularName": "factor",
+    "pluralName": "factors",
+    "displayName": "factor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullname": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "mobile": {
+      "type": "biginteger"
+    },
+    "postcode": {
+      "type": "string"
+    },
+    "address": {
+      "type": "richtext"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "factors"
+    },
+    "order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order",
+      "inversedBy": "factor"
+    }
+  }
+}
